@@ -21,6 +21,21 @@ app.config.suppress_callback_exceptions = True
 
 # Load data from csv
 def load_data():
+    
+    file_path = r"C:\Users\LENOVO\OneDrive\Documentos\MIAD\DespliegueSoluciones\datos_energia.csv"
+    
+    df = pd.read_csv(file_path)
+
+    df = df.rename(columns={'time': 'fecha'})
+
+    # Convierte la columna 'fecha' a formato datetime
+    df['fecha'] = pd.to_datetime(df['fecha'])
+    
+    # Establece la columna 'fecha' como el índice del DataFrame
+    df.set_index('fecha', inplace=True)
+
+    return df
+
     # To do: Completar la función 
     
 
